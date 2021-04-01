@@ -49,7 +49,16 @@ def read_data(word):
     else:
         return "That word does not exist in the dictionary, please enter another word."
 
-word = input("Search a word: ")
-output = read_data(word)        #   if word has many definitions the output is a list of tuples
-for line in output:             #   want to get all the lines/definitions
-    print(''.join(line))        #   print user-friendly
+while True:
+    print("""
+    1) Search for a word definition
+    2) Quit
+    """)
+    choice = input("Enter option: ")
+    if choice == '1':
+        word = input("Search for a word: ")
+        output = read_data(word)  # if word has many definitions the output is a list of tuples
+        for line in output:  # want to get all the lines/definitions
+            print("-" + ''.join(line))  # print user-friendly
+    elif choice == '2':                 #   quit program
+        break
