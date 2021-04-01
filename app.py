@@ -58,7 +58,10 @@ while True:
     if choice == '1':
         word = input("Search for a word: ")
         output = read_data(word)  # if word has many definitions the output is a list of tuples
-        for line in output:  # want to get all the lines/definitions
-            print("-" + ''.join(line))  # print user-friendly
+        if type(output) == str:
+            print(output)
+        else:
+            for line in output:  # want to get all the lines/definitions
+                print("-" + ''.join(line))  # print user-friendly
     elif choice == '2':                 #   quit program
         break
